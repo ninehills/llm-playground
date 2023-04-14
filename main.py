@@ -15,7 +15,7 @@ CODE = os.environ.get("CODE", "")
 
 ## Global variables
 # Prompt 存储
-if os.environ.get("PROMPT_STORE", "file") == "supabase":
+if os.environ.get("CUSTOM_PROMPTS_STORE", "file") == "supabase":
     prompt_store = prompt.Store(custom_prompts_store=prompt.PromptSupabaseStore())
 else:
     prompt_store = prompt.Store(custom_prompts_store=prompt.PromptFileStore())
