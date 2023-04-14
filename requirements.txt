@@ -1,0 +1,8 @@
+langchain
+tiktoken
+streamlit
+requests
+openai
+pandas
+wudao
+supabase

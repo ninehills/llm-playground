@@ -1,0 +1,10 @@
+{
+    " 无提示词": {
+        "template": "{question}",
+        "input_variables": ["question"]
+    },
+    "翻译到英文": {
+        "template": "简洁流畅且专业的翻译如下文字到英语：\n\n{question}\n\n翻译结果：",
+        "input_variables": ["question"]
+    }
+}
