@@ -2,6 +2,8 @@
 
 Prompt 工程师利器，可同时比较多个 Prompts 在多个 LLM 模型上的效果
 
+![](./img/demo.png)
+
 ## Roadmap
 
 - [x] 增加 ChatGLM-130B、文心千帆 模型（需要加入 waitlist）
