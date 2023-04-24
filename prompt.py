@@ -77,7 +77,7 @@ class PromptSupabaseStore(PromptStore):
         return prompts
 
     def add(self, name, prompt):
-        self.supabase_client.table("prompts").insert([
+        self.supabase_client.table("prompts").upsert([
             {
                 "name": name,
                 "prompt": {
