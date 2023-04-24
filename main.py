@@ -69,7 +69,7 @@ def make_request(input: str, model: str, temperature: float, prompt_name: str) -
     
 
 ## From here down is all the StreamLit UI.
-st.set_page_config(page_title="LLM Playground", page_icon=":robot:")
+st.set_page_config(page_title="LLM Playground", page_icon=":robot:", layout="wide")
 st.header("LLM Playground")
 st.markdown("""---""")
 
@@ -111,6 +111,8 @@ with st.sidebar:
         value=0.7,
         step=0.1,
     )
+
+    show_prompt = st.checkbox("显示 Prompt", value=False)
 
     if st.button("清空回答缓存"):
         st.cache_data.clear()
@@ -162,6 +164,10 @@ if st.session_state.page == 'question':
             order += 1
             with c.container():
                 st.markdown(f"模型：`{model}`  Prompt: `{prompt_name}`")
+                if show_prompt:
+                    st.markdown("---")
+                    st.markdown(f"```\n{prompt_store.get(prompt_name).template}\n```")
+                    st.markdown("---")
                 if run_button:
                     response = None
                     with st.spinner("正在生成回答..."):
