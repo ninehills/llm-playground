@@ -24,7 +24,8 @@ export OPENAI_API_KEY="sk-xxxxxx"
 ### 可使用 OpenAI API 代理
 # export OPENAI_API_BASE="https://xxxxxxxx/v1"
 ### 调用 文心千帆 相关 Key，请去文心千帆页面申请
-export WENXIN_ACCESS_TOKEN="xxxxx"
+export BAIDU_API_KEY="xxxxx"                            
+export BAIDU_SECRET_KEY="xxxxx"
 ## 调用 ChatGLM-130B 相关 Key，请去 http://open.bigmodel.cn/ 申请
 export WUDAO_API_KEY="xxxxx"
 export WUDAO_PUBLIC_KEY="xxxxx"

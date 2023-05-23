@@ -4,7 +4,7 @@ import os
 import streamlit as st
 
 import prompt
-from wenxin_llm import Wenxin
+from langchain_wenxin.llms import Wenxin
 from wudao_llm import Wudao
 from langchain.llms import OpenAIChat
 from langchain.chains import LLMChain
@@ -21,14 +21,19 @@ else:
     prompt_store = prompt.Store(custom_prompts_store=prompt.PromptFileStore())
 
 # 模型列表
-models = ["GPT-3.5", "GPT-4", "GPT-4-32K", "ChatGLM-130B", "文心千帆"]
+models = ["GPT-3.5", "GPT-4", "GPT-4-32K", "ChatGLM-130B", "文心一言", "文心Lite"]
 
 
 @st.cache_data(persist="disk")
 def make_request(input: str, model: str, temperature: float, prompt_name: str) -> str:
     """Make a request to the Model."""
-    if model == "文心千帆":
+    if model == "文心一言":
         llm = Wenxin(verbose=True)
+    elif model == "文心Lite":
+        llm = Wenxin(
+            model="eb-instant",
+            verbose=True,
+        )
     elif model == "GPT-3.5":
         llm = OpenAIChat(
             model_name="gpt-3.5-turbo",
@@ -89,6 +94,7 @@ with st.sidebar:
     prompt_name_selected = st.multiselect(
         "选择 Prompt（可多选）",
         prompt_store.list_names(),
+        default=[" 无提示词"],
     )
 
     def button_callback():
